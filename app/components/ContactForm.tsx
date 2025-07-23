@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import NeuralNetworkAnimation from "./NeuralNetworkAnimation"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -39,23 +40,20 @@ export default function ContactForm() {
       console.log(values)
       setIsSubmitting(false)
       form.reset()
-      alert("Thank you for your message. We'll get back to you soon!")
+      alert("¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.")
     }, 2000)
   }
 
   return (
-    <section className="bg-background py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+    <section className="relative overflow-hidden">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Get in Touch</h2>
-          <p className="text-lg text-muted-foreground">
-            We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
-          </p>
+          
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,9 +67,9 @@ export default function ContactForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="Ejemplo: Juan Pérez" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -82,9 +80,9 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Correo electrónico</FormLabel>
                     <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
+                      <Input placeholder="juan@ejemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -95,9 +93,9 @@ export default function ContactForm() {
                 name="phoneNumber"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel>Teléfono</FormLabel>
                     <FormControl>
-                      <Input placeholder="+1 (555) 000-0000" {...field} />
+                      <Input placeholder="+34 600 000 000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -108,9 +106,9 @@ export default function ContactForm() {
                 name="budget"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Budget</FormLabel>
+                    <FormLabel>Presupuesto</FormLabel>
                     <FormControl>
-                      <Input placeholder="$1,000 - $5,000" {...field} />
+                      <Input placeholder="€1,000 - €5,000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -121,20 +119,57 @@ export default function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Mensaje</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Tell us about your project..." className="min-h-[120px]" {...field} />
+                      <Textarea placeholder="Cuéntanos sobre tu proyecto o idea..." className="min-h-[120px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative"
+              >
+                <Button 
+                  type="submit" 
+                  className="w-full relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed" 
+                  disabled={isSubmitting}
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-0 hover:opacity-20 transition-opacity duration-300"
+                    style={{
+                      background: "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)",
+                      backgroundSize: "400% 400%",
+                      animation: isSubmitting ? "gradientShift 2s ease infinite" : "none"
+                    }}
+                  />
+                  <motion.span
+                    className="relative z-10"
+                    animate={isSubmitting ? { opacity: [1, 0.7, 1] } : {}}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                  </motion.span>
+                  {isSubmitting && (
+                    <motion.div
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    >
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
+                    </motion.div>
+                  )}
+                </Button>
+                
+              </motion.div>
             </form>
           </Form>
         </motion.div>
+        <p className="text-sm text-blue-900 mt-1 text-center mt-4 mb-20">
+                  Respuesta en menos de 24h • Análisis personalizado • Confidencialidad garantizada
+                </p>
       </div>
     </section>
   )

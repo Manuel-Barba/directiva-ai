@@ -6,23 +6,23 @@ import Image from "next/image"
 const testimonials = [
   {
     quote:
-      "CreativeAgency transformed our brand's digital presence. Their innovative approach and attention to detail exceeded our expectations.",
-    author: "Jane Doe",
-    position: "CEO, TechCorp",
+      "Gracias a Directiva AI, logramos automatizar procesos complejos de manera sencilla y ética. Su equipo nos acompañó en cada paso, siempre priorizando nuestras necesidades.",
+    author: "María González",
+    position: "Directora de Innovación, Soluciones Humanas",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     quote:
-      "Working with CreativeAgency was a game-changer for our startup. Their expertise in UI/UX design significantly improved our user engagement.",
-    author: "John Smith",
-    position: "Founder, InnovateTech",
+      "La inteligencia artificial de Directiva AI nos permitió acercar la tecnología a todo nuestro equipo, sin perder el enfoque humano. Una experiencia realmente transformadora.",
+    author: "Carlos Ramírez",
+    position: "Gerente General, Grupo Avance",
     image: "/placeholder.svg?height=100&width=100",
   },
   {
     quote:
-      "The team at CreativeAgency are true professionals. Their digital marketing strategies helped us reach new audiences and boost our conversions.",
-    author: "Emily Brown",
-    position: "Marketing Director, GrowthCo",
+      "El compromiso ético y la transparencia de Directiva AI nos dieron la confianza para implementar soluciones innovadoras en nuestra organización. Altamente recomendados.",
+    author: "Lucía Fernández",
+    position: "Responsable de Proyectos, Fundación Futuro",
     image: "/placeholder.svg?height=100&width=100",
   },
 ]
@@ -37,7 +37,7 @@ export default function Testimonials() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          What Our Clients Say
+          Lo que opinan nuestros clientes
         </motion.h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (

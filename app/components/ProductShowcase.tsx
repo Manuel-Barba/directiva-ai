@@ -7,20 +7,20 @@ import Image from "next/image"
 const products = [
   {
     id: 1,
-    name: "Innovative Web Design",
-    description: "Cutting-edge web experiences that captivate and convert.",
+    name: "Asistentes Inteligentes",
+    description: "Automatización ética y personalizada para tu empresa o proyecto.",
     image: "/placeholder.svg?height=600&width=600",
   },
   {
     id: 2,
-    name: "Mobile App Development",
-    description: "Intuitive and powerful apps for iOS and Android platforms.",
+    name: "Análisis Predictivo Humano",
+    description: "IA que entiende y se adapta a las necesidades reales de las personas.",
     image: "/placeholder.svg?height=600&width=600",
   },
   {
     id: 3,
-    name: "Brand Identity Design",
-    description: "Memorable and impactful branding that tells your story.",
+    name: "Soluciones de Inclusión Digital",
+    description: "Tecnología accesible para reducir la brecha y empoderar a todos.",
     image: "/placeholder.svg?height=600&width=600",
   },
 ]
@@ -39,7 +39,7 @@ export default function ProductShowcase() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
       <div className="container mx-auto">
-        <h2 className="section-title">Our Expertise</h2>
+        <h2 className="section-title">Nuestras soluciones de IA</h2>
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -53,7 +53,7 @@ export default function ProductShowcase() {
               <div className="md:w-1/2 mb-8 md:mb-0">
                 <h3 className="text-3xl font-bold mb-4">{products[currentProduct].name}</h3>
                 <p className="text-xl text-gray-600 mb-8">{products[currentProduct].description}</p>
-                <button className="apple-button">Learn More</button>
+                <button className="apple-button">Saber más</button>
               </div>
               <div className="md:w-1/2">
                 <Image

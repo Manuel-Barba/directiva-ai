@@ -12,19 +12,16 @@ export default function AboutUs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          About Us
+          Sobre nosotros
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <h3 className="text-3xl font-bold mb-4 text-white">We are Creative Innovators</h3>
+            <h3 className="text-3xl font-bold mb-4 text-white">IA centrada en las personas</h3>
             <p className="text-gray-300 mb-6">
-              At CreativeAgency, we blend cutting-edge technology with artistic vision to create digital experiences
-              that captivate and inspire. Our team of passionate designers, developers, and strategists work tirelessly
-              to push the boundaries of what's possible in the digital realm.
+              En Directiva AI acercamos la inteligencia artificial a las personas, creando soluciones accesibles y útiles que responden a necesidades reales. Nuestra misión es que la tecnología sea una herramienta de empoderamiento y crecimiento para todos.
             </p>
             <p className="text-gray-300">
-              With a focus on innovation and user-centric design, we've helped countless brands transform their digital
-              presence and connect with their audience in meaningful ways.
+              Nos comprometemos con la ética, la inclusión y el bienestar humano, desarrollando IA que respeta la dignidad y fomenta una convivencia armónica entre personas y tecnología.
             </p>
           </motion.div>
           <motion.div
@@ -35,7 +32,7 @@ export default function AboutUs() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg transform rotate-3"></div>
             <div className="absolute inset-0 bg-gray-800 rounded-lg transform -rotate-3 flex items-center justify-center">
-              <p className="text-2xl font-bold text-white">Creative Team at Work</p>
+              <p className="text-2xl font-bold text-white">Creamos IA para tu día a día</p>
             </div>
           </motion.div>
         </div>

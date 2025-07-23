@@ -2,70 +2,63 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useTheme } from "next-themes"
-import { motion } from "framer-motion"
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [hidden, setHidden] = useState(false)
+  const { scrollY } = useScroll()
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => setMounted(true), [])
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = lastScrollY
+    const current = latest
+    
+    if (current > previous && current > 100) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+    
+    setLastScrollY(current)
+  })
+
   return (
     <motion.header
-      className="sticky top-0 z-50 bg-background/80 backdrop-blur-md"
+      className="sticky top-0 z-50 backdrop-blur-md bg-white"
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      animate={{ y: hidden ? -100 : 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 relative z-10" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Flowers & Saints</span>
-            <img
-              className="h-8 w-auto"
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/creative-SW6QDQbcVuwPgb6a2CYtYmRbsJa4k1.png"
-              alt="Flowers & Saints Logo"
-            />
+            <span className="text-lg font-bold text-blue-700 hover:text-blue-800 transition-colors">
+              
+            </span>
           </Link>
         </div>
-        <div className="flex gap-x-12">
-          <Link
-            href="https://www.flowersandsaints.com.au"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            Work
-          </Link>
-          <Link
-            href="https://www.flowersandsaints.com.au"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="https://www.flowersandsaints.com.au"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-          >
-            Contact
-          </Link>
+        <div className="flex gap-x-12 justify-center flex-1">
+          <div className="relative group">
+            <span className="text-sm font-semibold leading-6 text-blue-700 cursor-default">
+              Mtra Sof-ia
+            </span>
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
+              Pre-Launch: 25 de agosto, 2025
+            </div>
+          </div>
+          <div className="relative group">
+            <span className="text-sm font-semibold leading-6 text-blue-700 cursor-default">
+              Impulsa AI
+            </span>
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
+              Pre-Launch: 3 de diciembre, 2025
+            </div>
+          </div>
         </div>
-        <div className="flex flex-1 justify-end">
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full p-2 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-            >
-              {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-            </button>
-          )}
-        </div>
+        <div className="flex lg:flex-1"></div>
       </nav>
     </motion.header>
   )

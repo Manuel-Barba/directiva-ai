@@ -5,29 +5,29 @@ import { motion, useAnimation, useMotionValue } from "framer-motion"
 
 const features = [
   {
-    title: "Minimal Design",
-    description: "Clean aesthetics that put your content in the spotlight.",
-    icon: "✨",
+    title: "Ética y Transparencia",
+    description: "Desarrollamos IA responsable, priorizando la ética y la claridad en cada solución.",
+    icon: "\u2728",
   },
   {
-    title: "Responsive",
-    description: "Flawless experiences across all devices and screen sizes.",
-    icon: "📱",
+    title: "Inclusión Digital",
+    description: "Soluciones accesibles para todas las personas y contextos.",
+    icon: "\ud83d\udcf1",
   },
   {
-    title: "Fast Performance",
-    description: "Lightning-quick load times for smooth user interactions.",
-    icon: "⚡",
+    title: "Innovación Humana",
+    description: "Tecnología que potencia el desarrollo y bienestar de las personas.",
+    icon: "\u26a1",
   },
   {
-    title: "Accessibility",
-    description: "Inclusive design practices for all users.",
-    icon: "🌈",
+    title: "Crecimiento Sostenible",
+    description: "IA que contribuye a una convivencia armónica entre personas y máquinas.",
+    icon: "\ud83c\udf08",
   },
   {
-    title: "SEO Optimized",
-    description: "Built to help your site rank higher in search results.",
-    icon: "🔍",
+    title: "Adaptabilidad",
+    description: "Soluciones de IA que se ajustan a tus necesidades reales.",
+    icon: "\ud83d\udd0d",
   },
 ]
 
@@ -55,7 +55,7 @@ export default function FeatureCarousel() {
   return (
     <div className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Why Choose Us</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">¿Por qué elegir Directiva AI?</h2>
         <motion.div ref={carousel} className="cursor-grab overflow-hidden">
           <motion.div
             drag="x"
@@ -83,7 +83,7 @@ export default function FeatureCarousel() {
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
                   >
-                    Learn more →
+                    Saber más →
                   </a>
                 </div>
               </motion.div>

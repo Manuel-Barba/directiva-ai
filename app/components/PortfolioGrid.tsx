@@ -7,45 +7,28 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "Minimalist Brand Identity",
-    description: "Clean and modern visual communication for a tech startup",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Branding",
+    title: "Mtra Sof-ia",
+    description: "Planeaciones escolares con IA, basadas en la Nueva Escuela Mexicana.",
+    imageUrl: "/sofia.svg",
+    category: "Asistentes virtuales",
+    prelaunch: "Pre-Launch: 25 de agosto, 2025",
   },
   {
     id: 2,
-    title: "Sleek Web Experience",
-    description: "Elegant online presence for a luxury fashion brand",
-    imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Web Design",
+    title: "Impulsa AI",
+    description: "Coaching a emprendedores de habla hispana, con herramientas profesionales y asesoramiento real.",
+    imageUrl: null, // Usaremos un ícono de cohete en vez de imagen
+    category: "Plataforma",
+    prelaunch: "Pre-Launch: 3 de diciembre, 2025",
+    isRocket: true,
   },
   {
     id: 3,
-    title: "Intuitive Mobile App",
-    description: "User-friendly app design for a health and wellness company",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "Mobile App",
-  },
-  {
-    id: 4,
-    title: "Elegant Digital Campaign",
-    description: "Sophisticated marketing strategy for a luxury automotive brand",
-    imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Digital Marketing",
-  },
-  {
-    id: 5,
-    title: "Refined UI/UX Design",
-    description: "Streamlined user interfaces for a financial services platform",
-    imageUrl: "/placeholder.svg?height=600&width=800",
-    category: "UI/UX",
-  },
-  {
-    id: 6,
-    title: "Minimalist Product Design",
-    description: "Sleek and functional design for a smart home device",
-    imageUrl: "/placeholder.svg?height=800&width=600",
-    category: "Product Design",
+    title: "Próximamente ...",
+    description: "Más soluciones de IA humana y accesible en camino.",
+    imageUrl: null,
+    category: "Próximamente",
+    prelaunch: null,
   },
 ]
 
@@ -57,7 +40,7 @@ export default function PortfolioGrid() {
   const filteredProjects = filter === "All" ? projects : projects.filter((project) => project.category === filter)
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -65,9 +48,9 @@ export default function PortfolioGrid() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Work</h2>
+          <h2 id="portfolio" className="text-3xl font-bold text-foreground sm:text-4xl">Nuestras soluciones</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A showcase of our minimalist designs and creative solutions.
+            Descubre cómo la inteligencia artificial puede transformar la vida de las personas y organizaciones.
           </p>
         </motion.div>
 
@@ -99,41 +82,30 @@ export default function PortfolioGrid() {
                 transition={{ duration: 0.5 }}
                 className="bg-background rounded-3xl shadow-lg overflow-hidden hover-lift transition-all duration-300 ease-in-out border-2 border-transparent hover:border-primary/10"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={project.imageUrl || "/placeholder.svg"}
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300"
-                    whileHover={{ opacity: 1 }}
-                  >
-                    <p className="text-white text-center px-4">{project.description}</p>
-                  </motion.div>
+                <div className="relative h-64 overflow-hidden flex items-center justify-center">
+                  {project.imageUrl ? (
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      layout="fill"
+                      objectFit="contain"
+                      className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    />
+                  ) : project.isRocket ? (
+                    <span className="text-7xl">🚀</span>
+                  ) : (
+                    <span className="text-2xl text-muted-foreground">Próximamente...</span>
+                  )}
                 </div>
                 <div className="p-6">
                   <div className="text-sm font-medium text-primary mb-1">{project.category}</div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">{project.title}</h3>
-                  <a
-                    href="https://www.flowersandsaints.com.au"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline inline-flex items-center"
-                  >
-                    View Project
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
+                  <p className="text-muted-foreground mb-2">{project.description}</p>
+                  {project.prelaunch && (
+                    <div className="text-xs text-secondary-foreground bg-secondary rounded-full px-3 py-1 inline-block mt-2">
+                      {project.prelaunch}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

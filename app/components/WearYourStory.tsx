@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function WearYourStory() {
   return (
-    <section className="bg-background py-20">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,10 +12,9 @@ export default function WearYourStory() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">Wear Your Story</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">Haz de la IA parte de tu historia</h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Every piece from Flowers & Saints is a canvas for your unique narrative. Our designs blend minimal
-            aesthetics with nature's beauty, allowing you to express your individuality.
+            En Directiva AI creemos que la inteligencia artificial debe adaptarse a ti, acompañarte y potenciar tu día a día, respetando siempre tu creatividad y valores.
           </p>
           <motion.div
             className="mt-10"
@@ -24,12 +23,10 @@ export default function WearYourStory() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <a
-              href="https://www.flowersandsaints.com.au"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#portfolio"
               className="apple-button inline-flex items-center"
             >
-              Explore Collection
+              Descubre cómo te ayudamos
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"

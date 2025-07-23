@@ -42,8 +42,8 @@ export default function Contact() {
       console.log(values)
       setIsSubmitting(false)
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        title: "¡Mensaje enviado!",
+        description: "Te responderemos lo antes posible.",
       })
       form.reset()
     }, 2000)
@@ -58,7 +58,7 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Get in Touch
+          Contáctanos
         </motion.h2>
         <motion.div
           className="bg-white p-8 rounded-2xl shadow-lg"
@@ -73,9 +73,9 @@ export default function Contact() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="Ejemplo: Juan Pérez" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -86,9 +86,9 @@ export default function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Correo electrónico</FormLabel>
                     <FormControl>
-                      <Input placeholder="john@example.com" {...field} />
+                      <Input placeholder="juan@ejemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,16 +99,16 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Mensaje</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Tell us about your project..." className="min-h-[120px]" {...field} />
+                      <Textarea placeholder="Cuéntanos sobre tu proyecto o idea..." className="min-h-[120px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
               </Button>
             </form>
           </Form>

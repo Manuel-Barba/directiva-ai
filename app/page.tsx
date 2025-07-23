@@ -1,23 +1,23 @@
 import Hero from "./components/Hero"
 import WearYourStory from "./components/WearYourStory"
-import FeatureCarousel from "./components/FeatureCarousel"
 import PortfolioGrid from "./components/PortfolioGrid"
-import Timeline from "./components/Timeline"
 import Marquee from "./components/Marquee"
 import ContactForm from "./components/ContactForm"
-import NewsletterSubscribe from "./components/NewsletterSubscribe"
+import ClosingCTA from "./components/ClosingCTA"
 
 export default function Home() {
   return (
     <>
       <Hero />
       <WearYourStory />
-      <FeatureCarousel />
       <PortfolioGrid />
-      <Timeline />
       <Marquee />
-      <ContactForm />
-      <NewsletterSubscribe />
+      <div className="relative w-full overflow-hidden">
+        <div className="relative z-10">
+          <ClosingCTA />
+          <ContactForm />
+        </div>
+      </div>
     </>
   )
 }
