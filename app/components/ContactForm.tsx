@@ -33,21 +33,15 @@ export default function ContactForm() {
     },
   })
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error("Error al enviar el formulario");
-      form.reset();
-      alert("¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.");
-    } catch (error) {
-      alert("Hubo un error al enviar el formulario. Intenta de nuevo.");
-    }
-    setIsSubmitting(false);
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true)
+    // Simulate API call
+    setTimeout(() => {
+      console.log(values)
+      setIsSubmitting(false)
+      form.reset()
+      alert("¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.")
+    }, 2000)
   }
 
   return (

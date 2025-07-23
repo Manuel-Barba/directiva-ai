@@ -28,7 +28,7 @@ export default function Footer() {
             Creamos IA para tu día a día. © {new Date().getFullYear()} Directiva AI
           </p>
           <p className="text-center text-xs leading-5 text-muted-foreground mt-1">
-            <Link href="https://directiva.mx" target="_blank" rel="noopener noreferrer" className="underline">Una empresa de Directiva.mx</Link>
+            <Link href="https://directiva.mx" target="_blank" rel="noopener noreferrer" className="underline">Empresa de Directiva.mx</Link>
           </p>
         </div>
       </div>
